@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      New Customer
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,24 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Create New Customer</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <form [formGroup]="customerForm" (ngSubmit)="submit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input  autocapitalize inputmode="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input inputmode="text" autocapitalize formControlName="address"></ion-input>
+      </ion-item>
+      <ion-button [disabled]="!customerForm.valid" type="submit" expand="block">Submit
+        <ion-icon slot="end" name="create Customer">
+      </ion-icon>
+    </ion-button>
+    </ion-list>
+  </form>
 </ion-content>
